@@ -2,7 +2,7 @@
 node_modules/
 
 # Package lock files
-package-lock.json
+# package-lock.json
 yarn.lock
 
 # Logs
