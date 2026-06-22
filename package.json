@@ -3,7 +3,32 @@
   "version": "1.0.0",
   "private": true,
   "description": "Justice for Hadi — in memoriam Sharif Osman Bin Hadi. Static tribute page + a small self-built API for the page-view and used-by counters.",
+  "author": {
+    "name": "Mohammad Maizied Hasan Majumder (mdshuvo40@gmail.com)",
+    "email": "mdshuvo40@gmail.com",
+    "url": "https://lorapok.github.io/#founder"
+  },
+  "contributors": [
+    {
+      "name": "Lorapok Labs",
+      "email": "lorapokdev@gmail.com",
+      "url": "https://lorapok.github.io/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lorapok/Hadi-Memoriam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lorapok/Hadi-Memoriam/issues"
+  },
+  "homepage": "https://github.com/Lorapok/Hadi-Memoriam#readme",
+  "license": "MIT",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0"
   }
 }
