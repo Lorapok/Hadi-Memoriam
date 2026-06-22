@@ -159,9 +159,7 @@ The **Used By** counter is a self-reported, community-maintained list. If you ar
 
 ### 4. Hosting & Deployment
 
-This project is hosted on **Vercel**, using their static hosting along with Node.js serverless functions (`/api/views` and `/api/used-by`) for the backend. 
-
-A complete step-by-step deployment guide (covering Vercel setup, environment variables, GitHub Fine-Grained Tokens, and optional GitHub Actions integration) can be found in **[`DEPLOYMENT.md`](./DEPLOYMENT.md)**. Short version to get started:
+This is now hosted on **Vercel**, with a small self-built backend (`/api/views`, `/api/used-by`) instead of relying on a third-party counter service. Full setup — Vercel project, environment variables, the GitHub Actions deploy pipeline, and what each secret is for — is in **[`DEPLOYMENT.md`](./DEPLOYMENT.md)**. Short version:
 
 ```bash
 git init && git add . && git commit -m "Justice for Hadi"
