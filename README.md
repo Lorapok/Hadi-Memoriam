@@ -7,8 +7,8 @@
 ```
              J U S T I C E   F O R
 
-          ██╗  ██╗ █████╗ ██████╗ ██╗
-          ██║  ██║██╔══██╗██╔══██╗██║
+          ██╗  ██╗ ██████╗██████╗ ██╗
+          ██║  ██║██╔═══█╗██╔══██╗██║
           ███████║███████║██║  ██║██║
           ██╔══██║██╔══██║██║  ██║██║
           ██║  ██║██║  ██║██████╔╝██║
@@ -42,16 +42,16 @@
 ## `$ cat /etc/hadi/identity`
 
 ```
-╔══════════════════════════════════════════════════════════════╗
-║                                                                ║
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
 ║   NAME        : Sharif Osman Bin Hadi                         ║
 ║   ROLE        : Co-founder & Spokesperson, Inqilab Moncho     ║
 ║   BORN        : 30 June 1993 · Nalchity, Jhalokathi           ║
 ║   DIED        : 18 December 2025 · Singapore General Hospital ║
 ║   MOVEMENT    : July Revolution, 2024                         ║
 ║   STATUS      : [ JUSTICE PENDING ]                           ║
-║                                                                ║
-╚══════════════════════════════════════════════════════════════╝
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
 ```
 
 > "The person can die. The idea cannot die." — Sharif Osman Bin Hadi
@@ -84,17 +84,84 @@ This repo is a small, independent tribute: a GitHub README banner and a hosted m
 
 `index.html` and `banner.svg` both embed their images as base64, so neither can go "broken image" from a missing asset folder.
 
-## 1. Use the banner in any README
+## How to Use
 
+### 1. Embed the Banner and Badges
+
+To display the tribute banner and live tracking badges in any GitHub repository's `README.md`, copy and paste the markdown snippets below:
+
+#### **Tribute Banner**
 ```md
 <img src="https://raw.githubusercontent.com/Lorapok/Hadi-Memoriam/main/assets/banner.svg" alt="Justice for Hadi" width="100%">
 ```
-
 A single SVG, portrait included — nothing else to copy alongside it. The red status dot pulses via native SVG `<animate>`; unsupported renderers just show it solid, nothing breaks.
 
-## 2. Hosting
+#### **Live Tracking Badges**
+Include these live counter badges directly below the banner or in your badge row:
 
-This is now hosted on **Vercel**, with a small self-built backend (`/api/views`, `/api/used-by`) instead of relying on a third-party counter service. Full setup — Vercel project, environment variables, the GitHub Actions deploy pipeline, and what each secret is for — is in **[`DEPLOYMENT.md`](./DEPLOYMENT.md)**. Short version:
+- **Views Badge:**
+  ```md
+  [![Views](https://hadi-memoriam.vercel.app/api/views)](https://github.com/Lorapok/Hadi-Memoriam)
+  ```
+- **Used By Badge:**
+  ```md
+  [![Used By](https://hadi-memoriam.vercel.app/api/used-by)](#the-used-by-counter)
+  ```
+
+---
+
+### 2. Local Development
+
+You can run the tribute page and the serverless APIs locally on your machine.
+
+#### Option A: Full-Stack Local Preview (Recommended)
+This runs both the static frontend webpage (`index.html`) and the backend API server (`/api/*`) using the Vercel CLI:
+1. Install the Vercel CLI globally:
+   ```bash
+   npm install -g vercel
+   ```
+2. Start the local development server:
+   ```bash
+   vercel dev
+   ```
+3. Open `http://localhost:3000` in your browser.
+
+#### Option B: Simple Static Server (Frontend Only)
+If you only want to preview the tribute webpage without executing the backend APIs:
+- Using `npx`:
+  ```bash
+  npx serve
+  ```
+- Using Python:
+  ```bash
+  python3 -m http.server 8000
+  ```
+Then open `http://localhost:3000` or `http://localhost:8000` respectively.
+
+---
+
+### 3. Registering Your Repository (The Used-By Counter)
+
+The **Used By** counter is a self-reported, community-maintained list. If you are embedding the banner in your repository, opt-in to list your project and increment the badge:
+
+1. Open `assets/used-by.json`.
+2. Add your repository to the `repos` array:
+   ```json
+   {
+     "name": "you/your-repo",
+     "url": "https://github.com/you/your-repo",
+     "added": "2026-01-20"
+   }
+   ```
+3. Open a Pull Request. Once merged (and redeployed), `/api/used-by` picks up the new count immediately.
+
+---
+
+### 4. Hosting & Deployment
+
+This project is hosted on **Vercel**, using their static hosting along with Node.js serverless functions (`/api/views` and `/api/used-by`) for the backend. 
+
+A complete step-by-step deployment guide (covering Vercel setup, environment variables, GitHub Fine-Grained Tokens, and optional GitHub Actions integration) can be found in **[`DEPLOYMENT.md`](./DEPLOYMENT.md)**. Short version to get started:
 
 ```bash
 git init && git add . && git commit -m "Justice for Hadi"
@@ -102,20 +169,11 @@ git branch -M main
 git remote add origin https://github.com/Lorapok/Hadi-Memoriam.git
 git push -u origin main
 ```
-Then import the repo into Vercel and follow `DEPLOYMENT.md` from §2 onward for the environment variables the backend needs.
+Then import the repository into Vercel and set up the necessary environment variables.
 
-## 3. The used-by counter
+---
 
-It's a self-reported, community-maintained list — there's no reliable way to detect every README that embeds the banner, so rather than guess, it's an honest opt-in list read live by `/api/used-by`:
-
-1. Open `assets/used-by.json`.
-2. Add your repo:
-   ```json
-   { "name": "you/your-repo", "url": "https://github.com/you/your-repo", "added": "2026-01-20" }
-   ```
-3. Open a PR. Once merged (and redeployed), `/api/used-by` picks up the new count immediately — there's no separate generation step to run.
-
-## 4. Sources
+## Sources
 
 - [Wikipedia — Osman Hadi](https://en.wikipedia.org/wiki/Osman_Hadi)
 - [Justice for Hadi — About](https://www.justiceforhadi.org/about)
