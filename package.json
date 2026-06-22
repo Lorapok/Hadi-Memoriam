@@ -1,0 +1,9 @@
+{
+  "name": "hadi-memoriam",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Justice for Hadi — in memoriam Sharif Osman Bin Hadi. Static tribute page + a small self-built API for the page-view and used-by counters.",
+  "engines": {
+    "node": ">=18"
+  }
+}
