@@ -38,6 +38,17 @@
 > The two badges above (**Views**, **Used By**) are served by this project's own backend in `/api` — not shields.io, not komarev, not any third-party counter. See [`DEPLOYMENT.md`](./DEPLOYMENT.md) for how that's wired up. Until the project is deployed and that placeholder domain is swapped for the real one, those two specific badges won't resolve — everything else on this page works regardless.
 
 ---
+## 🕯️ In Memory
+
+<details>
+  <summary><b>Click to expand tribute</b></summary>
+
+  > A space created to remember, reflect, and demand justice.
+  > Every view, every share, every action keeps the memory alive.
+
+</details>
+
+---
 
 ## `$ cat /etc/hadi/identity`
 
